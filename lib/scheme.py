@@ -20,7 +20,7 @@ class TotallySafePRNG:
         self.__seed = seed  # Here, we use this "__" syntax to prevent the use of the "__getattribute__" method, therefore making the PRNG a bit more secure.
         self.__counter = 0
    
-    def get_Y(self):
+    def get_Y(self) -> int:
         """
         Generates the next Y.
 

@@ -1,4 +1,4 @@
-from utils import modexp_rl
+from .utils import modexp_rl
 
 class TotallySafePRNG:
     """

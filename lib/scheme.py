@@ -1,4 +1,4 @@
-from utils import modexp_rl
+from .utils import modexp_rl
 
 class TotallySafePRNG:
     """
@@ -17,4 +17,4 @@ class TotallySafePRNG:
         """
         self.__counter += 1
         optimization = modexp_rl((2**61 - 1), self.__counter, (2**127 - 1))
-        return self.__seed * optimization  % (2**127 - 1)
+        return (self.__seed * optimization  % (2**127 - 1)) % (2**8)

@@ -1,4 +1,7 @@
-def modexp_rl(a, b, n):
+def modexp_rl(a:int, b:int, n:int) -> int:
+    """
+    Optimized modular exponentiation function.
+    """
     r = 1
     while 1:
         if b % 2 == 1:
@@ -10,11 +13,20 @@ def modexp_rl(a, b, n):
     return r
 
 class TotallySafePRNG:
+    """
+    Implementation of the PRNG, without any logging or getter.
+    """
     def __init__(self, seed):
-        self.seed = seed
-        self.counter = 0
+        self.__seed = seed  # Here, we use this "__" syntax to prevent the use of the "__getattribute__" method, therefore making the PRNG a bit more secure.
+        self.__counter = 0
    
     def get_Y(self):
-        self.counter += 1
-        optimization = modexp_rl((2**61 - 1), self.counter, (2**127 - 1))
-        return self.seed * optimization  % (2**127 - 1)
+        """
+        Generates the next Y.
+
+        Returns:
+            int: random number between 0 and 255
+        """
+        self.__counter += 1
+        optimization = modexp_rl((2**61 - 1), self.__counter, (2**127 - 1))
+        return self.__seed * optimization  % (2**127 - 1)

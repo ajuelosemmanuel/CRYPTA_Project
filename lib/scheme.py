@@ -1,16 +1,4 @@
-def modexp_rl(a:int, b:int, n:int) -> int:
-    """
-    Optimized modular exponentiation function.
-    """
-    r = 1
-    while 1:
-        if b % 2 == 1:
-            r = r * a % n
-        b >>= 1
-        if b == 0:
-            break
-        a = a * a % n
-    return r
+from utils import modexp_rl
 
 class TotallySafePRNG:
     """

@@ -45,7 +45,19 @@ class TotallySafePRNG:
         maniaque = "numbers" if (self.counter != 1) else "number"
         return f"Seed : {self.seed}\nHas generated {self.counter} " + maniaque
     
-    def get_X_history(self) -> str:
+    def get_X_history(self) -> list[int]:
+        """
+        Returns a list containing all the values of X.
+        """
+        return [self.get_X(i) for i in range(self.counter)]
+
+    def get_Y_history(self) -> list[int]:
+        """
+        Returns a list containing all the values of Y.
+        """
+        return [self.get_X(i) % 2**8 for i in range(self.counter)]
+
+    def print_X_history(self) -> str:
         """
         Returns a string containing all the values of X and their indices.
         """
@@ -54,7 +66,7 @@ class TotallySafePRNG:
             result += (f'X_{i}\t:\t' + "{:0127b}".format(self.get_X(i))) + "\n"
         return result
 
-    def get_Y_history(self) -> str:
+    def print_Y_history(self) -> str:
         """
         Returns a string containing all the values of Y and their indices.
         """

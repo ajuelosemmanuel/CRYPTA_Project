@@ -18,3 +18,12 @@ X_8	:	11010101001010000010111111111111111111111111111111111111111110001010010101
 ```
 + Il faut donc regarder les mathématiques derrière ce PRNG de plus près. Après quelques observations, on trouve la formule générale : `X_n = X_0 * (2**61 - 1)**n mod (2**127 - 1)`
 + On fait alors une seconde implantation utilisant cette formule, qui n'a donc pas besoin de mémoire sur les `X_i` (mais qui nécessite néanmoins un compteur). De la même manière, on fait une version de l'implantation avec des fonctions de logging.
+
+---
+
+# Partie Challenge / Attaque
+
+En lisant le cours (voir documents/lattice_cryptanalysis-3-5.pdf) on trouve une attaque sur ce schéma. On suit alors les étapes :
++ on doit récupérer un état interne qui fait log2(m) bits avec m = (2**127 - 1) soit 127 bits.
++ Ici, chaque sortie ne contient que 8 bits d'information (les 8 bits de poids faible)
++ il faut donc examiner 120 (?) sorties d'aprsè la formule du cours.

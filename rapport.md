@@ -25,5 +25,5 @@ X_8	:	11010101001010000010111111111111111111111111111111111111111110001010010101
 
 En lisant le cours (voir documents/lattice_cryptanalysis-3-5.pdf) on trouve une attaque sur ce schéma. On suit alors les étapes :
 + on doit récupérer un état interne qui fait log2(m) bits avec m = (2**127 - 1) soit 127 bits.
-+ Ici, chaque sortie ne contient que 8 bits d'information (les 8 bits de poids faible)
-+ il faut donc examiner 120 (?) sorties d'aprsè la formule du cours.
++ Ici, chaque sortie ne contient que 8 bits d'information (les 8 bits de poids faible). On a donc `log2(m/k) = 8 -> m/k = 2**8 -> k=2**119`
++ il faut donc examiner 16 sorties d'après la formule du cours : `log2(m)/(log2(m) - log2(k)) = 15.875`.

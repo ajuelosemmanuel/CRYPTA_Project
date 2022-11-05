@@ -55,7 +55,7 @@ class TotallySafePRNG:
         """
         Returns a list containing all the values of Y.
         """
-        return [self.get_X(i) % 2**8 for i in range(self.counter)]
+        return [self.get_X(i) % 2**8 for i in range(1, self.counter + 1)]
 
     def print_X_history(self) -> str:
         """

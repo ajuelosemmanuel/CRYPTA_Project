@@ -17,9 +17,12 @@ Date de rendu : 24/11
 
 ## To-do list
 
-+ Poser les deux questions suivantes :
-  + Peut-on mettre du code dans le rapport ? Si oui, quelle proportion ? Sinon, est-il possble de fournir un accès au repo GitHub ?
-  + À quoi servent `a` et `p` dans le challenge ?
 + Tester l'efficacité du PRNG en faisant des statistiques
   + Analyser les stats du dossier `statistics`
 + Comparer les deux premières implantations (vitesse etc) en utilisant `timeit` et `cProfile`
+
+## Edit : 13/11 - Le sujet change un peu
+
+![imagesujet](media/vrai_sujet.png)
+
+Il faut donc implanter une version générale du PRNG - ce qui n'est pas un problème. On garde quand même le travail déjà fait, puisqu'on ne va pas jeter ça.

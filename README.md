@@ -19,7 +19,7 @@ Date de rendu : 24/11
 
 + Tester l'efficacité du PRNG en faisant des statistiques
   + Analyser les stats du dossier `statistics`
-+ Comparer les deux premières implantations (vitesse etc) en utilisant `timeit` et `cProfile`
++ Faire le rapport "propre"
 
 ## Edit : 13/11 - Le sujet change un peu
 

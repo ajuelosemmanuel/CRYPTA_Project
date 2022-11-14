@@ -3,7 +3,7 @@
 J'ai la flemme de rédiger donc liste :
 + On commence par implanter de manière naïve cf le fichier `scheme_naive.py` dans le dossier `lib`.
 + On crée une seconde version qui a des fonctions de logging, afin de voir l'historique des `X` et des `Y`.
-+ On remarque qu'avec des clés petites (1,3 et 7 on été testées), il y a une sorte de pattern :
++ On remarque qu'avec des seed petites (1,3 et 7 on été testées), il y a une sorte de pattern :
 ```
 Pour X_0 = 3
 X_0	:	0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011

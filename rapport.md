@@ -27,3 +27,8 @@ En lisant le cours (voir documents/lattice_cryptanalysis-3-5.pdf) on trouve une 
 + on doit récupérer un état interne qui fait log2(m) bits avec m = (2**127 - 1) soit 127 bits.
 + Ici, chaque sortie ne contient que 8 bits d'information (les 8 bits de poids faible). On a donc `log2(m/k) = 8 -> m/k = 2**8 -> k=2**119`
 + il faut donc examiner 16 sorties d'après la formule du cours : `log2(m)/(log2(m) - log2(k)) = 15.875`.
+
+ce qui est écrit au dessus est totalement faux je crois lol
+
+Première tentative : on essaie de faire ce qui est écrit dans le cours cf attempts/first_attempt.py - spoiler : ça n'a pas marché
+le code n'est pas clean, mais je vais voir pour en faire un bien qui facilite les tests

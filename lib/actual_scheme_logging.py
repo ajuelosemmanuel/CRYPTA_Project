@@ -5,7 +5,7 @@ class TotallySafePRNG:
     Implementation of the PRNG, with getters and logging functions.
     Because this is a version of the class designed to run tests, it has NO security whatsoever.
     """
-    def __init__(self, a, seed):
+    def __init__(self, a:int, seed:int):
         self.seed = seed
         self.a = a
         self.counter = 0

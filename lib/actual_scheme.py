@@ -4,7 +4,7 @@ class TotallySafePRNG:
     """
     Implementation of the PRNG, without any logging or getter.
     """
-    def __init__(self, a, seed):
+    def __init__(self, a:int, seed:int):
         self.__seed = seed  # Here, we use this "__" syntax to prevent the use of the "__getattribute__" method, therefore making the PRNG a bit more secure.
         self.__a = a
         self.__counter = 0

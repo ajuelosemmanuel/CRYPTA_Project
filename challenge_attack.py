@@ -34,7 +34,7 @@ def gen_matrix(a:int, modulus:int, size:int) -> list:
 # Voir les explications dans le rapport
 I = modinv(2**8, p)
 
-y = [ (el*I) % p for el in Y[:-46]]  # On prend soin de ne garder que les 63 premières valeurs
+y = [ (el*I) % p for el in Y[:-46]]  # On prend soin de ne garder que les 19 premières valeurs
 
 L = IntegerMatrix.from_matrix(gen_matrix(a, p, n))
 reduced = LLL.reduction(L)

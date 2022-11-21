@@ -6,11 +6,18 @@ Schéma :
 
 Objectifs :
 + Implanter le schéma
+  + Voir `/lib`
 + Discuter de son efficacité
+  + Statistiques dans le rapport
 + Casser le challenge
+  + `challenge_attack.py`
+  + Seed  = `160132562724753331766255120961262537267`
 + Trouver une attaque / une manière de l'empêcher
+  + Attaque : trouvée - manière de l'empêcher : utiliser un P pair (on ne peut plus inverser 2**8, et donc l'attaque n'est plus possible !)
 + Si aucune attaque est trouvée, expliquer les tentatives
+  + rapport
 + Comment la sécurité serait-elle affectée si certains paramètres étaient agrandis/rétrécis ?
+  + rapport
 + Rapport
 
 Date de rendu : 24/11

@@ -1,7 +1,8 @@
 from fpylll import *
-from ast import literal_eval
+from lib.actual_scheme import TotallySafePRNG
+from lib.utils import gen_seed
 
-n = 19
+n = 21  # D'après https://hal.archives-ouvertes.fr/hal-02700791/document page 8, il suffit de 63 Y consécutifs pour retrouver la graine utilisée.
 
 def egcd(a, b):
     # Source : https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
@@ -42,19 +43,19 @@ def main(a:int, p:int, Ys:list):
     probable_seed = Xi[0] * inv_a % p
     probable_ys = [probable_seed * pow(a,i,p) % p % 2**8 for i in range(1,len(Ys)+1)]
     if probable_ys == Ys:
-        print("Seed recovery complete")
-        print("Seed : " + str(probable_seed))
+        return probable_seed
     else:
-        print("Not enough information to recover the seed.")
+        return -1
 
 if __name__ == "__main__":
-    a = int(input("a : "))
-    p = int(input("p : "))
-    Ys = literal_eval(input("Ys : "))
-    main(a, p, Ys)
-
-# a : 150879928588932929063915567870431524202
-# p : 170141183460469231731687303715884105727
-# Ys : [244, 73, 77, 149, 250, 28, 117, 8, 9, 178, 104, 0, 17, 136, 153, 54, 219, 253, 72]
-# Seed recovery complete
-# Seed : 46006708213540093617449443081394574359
+    p = pow(2,127)-1
+    cpt = 0
+    for i in range(10000):
+        a = gen_seed()
+        seed = gen_seed()
+        prng = TotallySafePRNG(a, seed)
+        samples = [prng.get_Y() for i in range(n)]
+        result = main(a, p, samples)
+        if result == seed:
+            cpt+=1
+    print("Pourcentage de réussite : " + str((cpt*100)/10000))

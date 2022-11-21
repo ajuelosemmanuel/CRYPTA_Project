@@ -1,7 +1,7 @@
 from fpylll import *
 from challenge.challenge import *
 
-n = 63  # D'après https://hal.archives-ouvertes.fr/hal-02700791/document page 8, il suffit de 63 Y consécutifs pour retrouver la graine utilisée.
+n = 19  # D'après https://hal.archives-ouvertes.fr/hal-02700791/document page 8, il suffit de 63 Y consécutifs pour retrouver la graine utilisée - ici, après divers tests, il s'avère qu'il nous faut que 19 Y_i consécutifs pour retrouver les X_i correspondants.
 
 def egcd(a, b):
     # Source : https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
@@ -34,7 +34,7 @@ def gen_matrix(a:int, modulus:int, size:int) -> list:
 # Voir les explications dans le rapport
 I = modinv(2**8, p)
 
-y = [ (el*I) % p for el in Y[:-2]]  # On prend soin de ne garder que les 63 premières valeurs
+y = [ (el*I) % p for el in Y[:-46]]  # On prend soin de ne garder que les 63 premières valeurs
 
 L = IntegerMatrix.from_matrix(gen_matrix(a, p, n))
 reduced = LLL.reduction(L)
@@ -45,19 +45,17 @@ Xi_I = CVP.closest_vector(reduced, y, method="fast")
 
 Xi = [xi_i*2**8 % p for xi_i in Xi_I]
 
-next_y = (Xi[-1] * a % p) % 2**8
-
-print("Predict next Y : " + str(next_y == Y[63]))
-
 # Nous tentons maintenant de retrouver une seed potentielle
 inv_a = modinv(a, p)
 
 probable_seed = Xi[0] * inv_a % p
 
-print("Probable seed : " + str(probable_seed))
-
 # Vérification
 
 probable_ys = [probable_seed * pow(a,i,p) % p % 2**8 for i in range(1,66)]
 
-print("Seed confirmed : " + str(probable_ys == Y))
+if probable_ys == Y:
+    print("Seed recovery complete")
+    print("Seed : " + str(probable_seed))
+else:
+    print("Not enough information to recover the seed.")

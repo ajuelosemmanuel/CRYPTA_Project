@@ -16,13 +16,12 @@ Objectifs :
 Date de rendu : 24/11
 
 ## To-do list
-
-+ Tester l'efficacité du PRNG en faisant des statistiques
-  + Analyser les stats du dossier `statistics`
 + Faire le rapport "propre"
++ Bien décrire comment marche l'attaque
 
 ## Edit : 13/11 - Le sujet change un peu
 
 ![imagesujet](media/vrai_sujet.png)
 
 Il faut donc implanter une version générale du PRNG - ce qui n'est pas un problème. On garde quand même le travail déjà fait, puisqu'on ne va pas jeter ça.
+

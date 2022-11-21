@@ -1,7 +1,7 @@
 from fpylll import *
 from ast import literal_eval
 
-n = 19
+n = 21
 
 def egcd(a, b):
     # Source : https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
@@ -55,6 +55,6 @@ if __name__ == "__main__":
 
 # a : 150879928588932929063915567870431524202
 # p : 170141183460469231731687303715884105727
-# Ys : [244, 73, 77, 149, 250, 28, 117, 8, 9, 178, 104, 0, 17, 136, 153, 54, 219, 253, 72]
+# Ys : [244, 73, 77, 149, 250, 28, 117, 8, 9, 178, 104, 0, 17, 136, 153, 54, 219, 253, 72, 219, 153]
 # Seed recovery complete
 # Seed : 46006708213540093617449443081394574359

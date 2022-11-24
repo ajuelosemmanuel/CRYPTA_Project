@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")                   # Go back to the previous folder to fix directory issue
 from lib.utils import gen_seed          # Seed generator
 from lib.scheme import TotallySafePRNG  # The PRNG
 from matplotlib import pyplot as plt    # To plot simple 2D graphs
